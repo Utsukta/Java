@@ -169,12 +169,8 @@ public class Client extends javax.swing.JFrame {
                 msgin=dis.readUTF();
                 Message_Area.setText(Message_Area.getText()+"\n Client:"+msgin);
                 
-                
-            }
-            
-            
-            
-             
+         
+            } 
             
         }catch(Exception e){
              System.out.println("Client side "+e.getMessage());
