@@ -36,8 +36,10 @@ public class validate extends HttpServlet {
         String pwd=request.getParameter("pwd");
         System.out.println("Done2");
         if(login.equals("java") && pwd.equals("servlet")){
-            rd=request.getRequestDispatcher("FwdDemo");
-            rd.forward(request, response);
+            response.sendRedirect("www.google.com");
+            
+//            rd=request.getRequestDispatcher("FwdDemo");
+//            rd.forward(request, response);
         }
         else{
             out.println("<p><h1> Incorrect LogIn Id/Password</h1></p>");
