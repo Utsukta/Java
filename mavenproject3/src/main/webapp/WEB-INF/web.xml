@@ -4,18 +4,13 @@
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>NewServlet</servlet-class>
         <init-param>
-            <param-name>name</param-name>
-            <param-value>utsukta</param-value>
+            
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
-     <context-param>
-        <param-name>name</param-name>
-        <param-value>utsu</param-value>
-    </context-param>
     <session-config>
         <session-timeout>
             30

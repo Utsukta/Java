@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,38 +19,42 @@ import java.io.PrintWriter;
 public class NewServlet extends HttpServlet {
     
     PrintWriter out;
+    String college;
+    String nameconfig;
+    String namecontext;
+
     
+//   
     @Override
-    public void init(){}
-    
-
-  
- 
-
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
+        
+        out=response.getWriter();  
+        out.print(request.getMethod());
+        out.print(request.getContextPath());
+        out.print(request.getServletPath());
+        out.print(request.getQueryString());
+        
+//        
+    //creating ServletContext object  
+    ServletContext context=getServletContext();  
+    //Getting the value of the initialization parameter and printing it  
+    college=context.getInitParameter("name"); 
+    
+    ServletConfig config=getServletConfig();
+    String namee=config.getInitParameter("name");
+    String a= namee+college;
+    
+//   
+    namecontext=nameconfig+college;
+    out.println(namee+college+"Length is"+a.length()); 
+        
         out=response.getWriter();
+   
+        
 
-        String name =request.getParameter("email");
-        int no1=Integer.parseInt(request.getParameter("number1"));
-        int no2=Integer.parseInt(request.getParameter("number2"));
-        if(no1>no2){
-            out.print(no1+"is greater");
-            
-            
-        }
-        else if(no2>no1) {
-            out.print(no2+"is greater");
-            
-        }
-        else{
-            out.print("is equal");
-        }
-        out.print(name);
+        out.print(nameconfig );
        
     }
 
